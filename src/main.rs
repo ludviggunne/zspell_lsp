@@ -9,9 +9,9 @@ mod server;
 #[derive(Parser, Debug)]
 #[command(about, long_about = None)]
 pub struct Options {
-    /// Specify configuration file.
+    /// Specify affix file.
     #[arg(short, long, default_value_t = String::from("./index.aff"))]
-    config: String,
+    affix: String,
 
     /// Specify dictionary file.
     #[arg(short, long, default_value_t = String::from("./index.dic"))]
@@ -48,10 +48,10 @@ fn main() {
     let options = Options::parse();
     _ = options;
 
-    let config_str = match std::fs::read_to_string(&options.config) {
-        Ok(config) => config,
+    let affix_str = match std::fs::read_to_string(&options.affix) {
+        Ok(affix) => affix,
         Err(e) => {
-            error!("Unable to open config file {}: {}", options.config, e);
+            error!("Unable to open affix file {}: {}", options.affix, e);
             process::exit(-1);
         }
     };
@@ -68,7 +68,7 @@ fn main() {
     };
 
     let dict = match zspell::builder()
-        .config_str(&config_str)
+        .config_str(&affix_str)
         .dict_str(&dict_str)
         .build()
     {
