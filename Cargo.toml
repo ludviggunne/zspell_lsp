@@ -1,5 +1,5 @@
 [package]
-name = "hunspell_lsp"
+name = "zspell_lsp"
 version = "0.1.0"
 edition = "2021"
 
