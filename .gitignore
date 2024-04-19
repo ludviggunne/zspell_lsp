@@ -1,0 +1,7 @@
+target/
+.helix/
+*.dic
+*.aff
+*.txt
+*.sh
+languages.toml
