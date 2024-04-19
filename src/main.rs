@@ -84,12 +84,13 @@ fn main() {
     let mut server = match Server::new(dict) {
         Ok(server) => server,
         Err(e) => {
-            eprintln!("Fatal error: couldn't initialize server: {}", e);
+            error!("Couldn't initialize server: {}", e);
             process::exit(-1);
         }
     };
 
     if let Err(err) = server.run() {
-        eprintln!("Fatal error: {}", err);
+        error!("Server error: {}", err);
+        process::exit(-1);
     }
 }
