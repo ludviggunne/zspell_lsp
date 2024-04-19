@@ -1,7 +1,5 @@
 use clap::Parser;
-use log::{
-    error, info, Level, LevelFilter, Log, Metadata, Record, SetLoggerError,
-};
+use log::{error, Level, LevelFilter, Log, Metadata, Record, SetLoggerError};
 use server::Server;
 use std::process;
 

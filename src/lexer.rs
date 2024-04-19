@@ -1,4 +1,3 @@
-use log::info;
 use lsp_types::{Position, Range};
 use std::str::{CharIndices, Lines};
 use streaming_iterator::StreamingIterator;
